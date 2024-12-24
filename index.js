@@ -1,6 +1,6 @@
 "use strict";
 let message = 'Hello TS';
-console.log(message);
+// console.log(message);
 let firstName = 'Rasel';
 let age = 24;
 let isEmployed = false;
@@ -20,4 +20,16 @@ let person = {
     age: 24,
     isStudent: true,
 };
-console.log(`Hi I am ${person.name}, I am ${person.age} year old`);
+// console.log(`Hi I am ${person.name}, I am ${person.age} year old`);
+function add(a, b) {
+    return a + b;
+}
+// console.log(add(3, 5));
+function greet(name, age) {
+    if (age) {
+        return `${name}, ${age}`;
+    }
+    return `hello ${name}`;
+}
+console.log(greet('tom'));
+console.log(greet('tommy', 45));

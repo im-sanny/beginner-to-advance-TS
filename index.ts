@@ -1,5 +1,5 @@
 let message: string = 'Hello TS';
-console.log(message);
+// console.log(message);
 
 let firstName: string = 'Rasel';
 let age: number = 24;
@@ -35,4 +35,19 @@ let person: Person = {
   isStudent: true,
 };
 
-console.log(`Hi I am ${person.name}, I am ${person.age} year old`);
+// console.log(`Hi I am ${person.name}, I am ${person.age} year old`);
+
+function add(a: number, b: number): number {
+  return a + b;
+}
+// console.log(add(3, 5));
+
+function greet(name: string, age?: number): string {
+  if (age) {
+    return `${name}, ${age}`;
+  }
+  return `hello ${name}`;
+}
+
+// console.log(greet('tom'));
+// console.log(greet('tommy', 45));
