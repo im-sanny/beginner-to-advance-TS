@@ -8,7 +8,31 @@ let isEmployed: boolean = false;
 let fruits: string[] = ['mango', 'litchi'];
 let numbers: number[] = [1, 2, 3, 4];
 
-let user: [string, number, boolean];
+// tuples
+let user: [name: string, age: number, student: boolean];
 user = ['Rasel', 24, true];
 
+// unions
+let value: string | number;
+value = 'name';
+value = 24;
 
+// type aliases
+type Id = string | number;
+let userId: Id = 'Tom';
+userId = 234;
+
+// practice
+type Person = {
+  name: string;
+  age: number;
+  isStudent: boolean;
+};
+
+let person: Person = {
+  name: 'Tom',
+  age: 24,
+  isStudent: true,
+};
+
+console.log(`Hi I am ${person.name}, I am ${person.age} year old`);
