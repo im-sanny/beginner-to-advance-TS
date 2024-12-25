@@ -49,5 +49,27 @@ function greet(name: string, age?: number): string {
   return `hello ${name}`;
 }
 
-// console.log(greet('tom'));
-// console.log(greet('tommy', 45));
+function multiply(a: number, b: number = 3): number {
+  return a * b;
+}
+
+type AddFn = (a: number, b: number) => number;
+
+const addNumbers: AddFn = (a, b) => a + b;
+
+interface User {
+  id: number;
+  name: string;
+  isAdmin: boolean;
+  description?: string;
+  readonly title: string;
+}
+
+let users: User = {
+  id: 79,
+  name: 'tom',
+  isAdmin: true,
+  title: 'good products',
+};
+users.id = 70;
+// users.title = 'New title';

@@ -31,5 +31,15 @@ function greet(name, age) {
     }
     return `hello ${name}`;
 }
-console.log(greet('tom'));
-console.log(greet('tommy', 45));
+function multiply(a, b = 3) {
+    return a * b;
+}
+const addNumbers = (a, b) => a + b;
+let users = {
+    id: 79,
+    name: 'tom',
+    isAdmin: true,
+    title: 'good products',
+};
+users.id = 70;
+// users.title = 'New title';
