@@ -8,3 +8,19 @@ const cars = {
     year: 342,
 };
 console.log(myCar(cars));
+class Continent {
+    constructor(name, country) {
+        this.name = name;
+        this.country = country;
+    }
+    fav() {
+        return `My favorite continent is ${this.name}`;
+    }
+    num() {
+        return this.country;
+    }
+}
+const favContinent = new Continent('Europe', 24);
+console.log(favContinent.fav());
+console.log(favContinent.num());
+console.log(favContinent.name);
