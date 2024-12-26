@@ -1,10 +1,10 @@
 "use strict";
-function describeCar(car) {
-    return `lol is a ${car.name}, model ${car.model}, year ${car.year}`;
+function myCar(car) {
+    return `car name is ${car.name}, car model ${car.model}, made in ${car.model}`;
 }
-const myCar = {
-    name: 'Tesla',
-    model: 'Model 3',
-    year: 2023,
+const cars = {
+    name: 'telsa',
+    model: '610',
+    year: 342,
 };
-console.log(describeCar(myCar));
+console.log(myCar(cars));

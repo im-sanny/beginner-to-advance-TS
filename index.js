@@ -43,3 +43,17 @@ let users = {
 };
 users.id = 70;
 // users.title = 'New title';
+class Birds {
+    constructor(name, quantity) {
+        this.name = name;
+        this.age = quantity;
+    }
+    like() {
+        return `I like ${this.name}`;
+    }
+    buy() {
+        return this.age;
+    }
+}
+const bird = new Birds('Cuckoo', 1);
+console.log(bird.like());

@@ -2,17 +2,17 @@ interface Car {
   name: string;
   model: string;
   year: number;
-  isElectric?: boolean;
+  owner?: string;
 }
 
-function describeCar(car: Car): string {
-  return `This is my ${car.name}, model ${car.model}, year ${car.year}`;
+function myCar(car: Car): string {
+  return `car name is ${car.name}, car model ${car.model}, made in ${car.model}`;
 }
 
-const myCar: Car = {
-  name: 'Tesla',
-  model: 'Model 3',
-  year: 2023,
+const cars: Car = {
+  name: 'telsa',
+  model: '610',
+  year: 342,
 };
 
-console.log(describeCar(myCar));
+console.log(myCar(cars));
