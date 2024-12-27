@@ -1,59 +1,85 @@
 "use strict";
-let message = 'Hello TS';
-// console.log(message);
-let firstName = 'Rasel';
-let age = 24;
-let isEmployed = false;
-let fruits = ['mango', 'litchi'];
-let numbers = [1, 2, 3, 4];
-// tuples
-let user;
-user = ['Rasel', 24, true];
-// unions
-let value;
-value = 'name';
-value = 24;
-let userId = 'Tom';
-userId = 234;
-let person = {
-    name: 'Tom',
+// Basic String Type Annotation: Explicitly defining a string variable
+let greeting = 'Hello TypeScript';
+// Primitive Type Declarations: Strongly typed simple variables
+let customerName = 'Rasel';
+let customerAge = 24;
+let isCustomerEmployed = false;
+// Array Type Annotations: Typed arrays with specific element types
+let favoriteFruits = ['mango', 'litchi'];
+let productQuantities = [1, 2, 3, 4];
+// Tuple: Fixed-length array with predefined type sequence
+let userProfile;
+userProfile = ['Rasel', 24, true];
+// Union Types: Variables that can hold multiple types
+let dynamicValue;
+dynamicValue = 'customer name';
+dynamicValue = 42;
+let productId = 'PROD001';
+productId = 12345;
+let customerProfile = {
+    fullName: 'Tom Anderson',
     age: 24,
-    isStudent: true,
+    isUndergraduate: true,
 };
-// console.log(`Hi I am ${person.name}, I am ${person.age} year old`);
-function add(a, b) {
-    return a + b;
+// Function with Explicit Type Annotations: Defining input and output types
+function calculateSum(firstNumber, secondNumber) {
+    return firstNumber + secondNumber;
 }
-// console.log(add(3, 5));
-function greet(name, age) {
-    if (age) {
-        return `${name}, ${age}`;
-    }
-    return `hello ${name}`;
+// Function with Optional Parameter: Parameter that may or may not be provided
+function generateGreeting(name, age) {
+    return age ? `Hello ${name}, you are ${age} years old` : `Hello ${name}`;
 }
-function multiply(a, b = 3) {
-    return a * b;
+// Function with Default Parameter: Providing a default value if not specified
+function calculateProduct(baseValue, multiplier = 3) {
+    return baseValue * multiplier;
 }
-const addNumbers = (a, b) => a + b;
-let users = {
+// Arrow Function with Type Alias
+const performAddition = (x, y) => x + y;
+let userAccount = {
     id: 79,
-    name: 'tom',
-    isAdmin: true,
-    title: 'good products',
+    username: 'tom_tech',
+    isAdministrator: true,
+    accountCreatedAt: '2023-06-15',
 };
-users.id = 70;
-// users.title = 'New title';
-class Birds {
-    constructor(name, quantity) {
+// Class: Object-oriented programming construct with type safety
+class Person {
+    // Constructor: Initializes object properties
+    constructor(name, age) {
         this.name = name;
-        this.age = quantity;
+        this.age = age;
     }
-    like() {
-        return `I like ${this.name}`;
+    // Method with return type annotation
+    describePerson() {
+        return `I know ${this.name}`;
     }
-    buy() {
+    // Method returning a number
+    getAge() {
         return this.age;
     }
 }
-const bird = new Birds('Cuckoo', 1);
-console.log(bird.like());
+// Class Instantiation and Array of Class Type
+const person = new Person('Thomas', 30);
+let personArray = [];
+console.log(person.describePerson());
+console.log(personArray);
+// Access modifier
+class Animal {
+    constructor(species) {
+        this.species = species;
+    }
+    makeSound() {
+        return `This is a ${this.species}`;
+    }
+}
+class Dog extends Animal {
+    constructor() {
+        super('Dog');
+    }
+    bark() {
+        return `${this.species} says woof woof`;
+    }
+}
+let dog = new Dog();
+console.log(dog.makeSound());
+console.log(dog.bark());

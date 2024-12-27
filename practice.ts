@@ -37,4 +37,4 @@ class Continent {
 const favContinent = new Continent('Europe', 24);
 console.log(favContinent.fav());
 console.log(favContinent.num());
-console.log(favContinent.country);
+// console.log(favContinent.country); //Error: Property 'age' is private.

@@ -1,95 +1,131 @@
-let message: string = 'Hello TS';
-// console.log(message);
+// Basic String Type Annotation: Explicitly defining a string variable
+let greeting: string = 'Hello TypeScript';
 
-let firstName: string = 'Rasel';
-let age: number = 24;
-let isEmployed: boolean = false;
+// Primitive Type Declarations: Strongly typed simple variables
+let customerName: string = 'Rasel';
+let customerAge: number = 24;
+let isCustomerEmployed: boolean = false;
 
-let fruits: string[] = ['mango', 'litchi'];
-let numbers: number[] = [1, 2, 3, 4];
+// Array Type Annotations: Typed arrays with specific element types
+let favoriteFruits: string[] = ['mango', 'litchi'];
+let productQuantities: number[] = [1, 2, 3, 4];
 
-// tuples
-let user: [name: string, age: number, student: boolean];
-user = ['Rasel', 24, true];
+// Tuple: Fixed-length array with predefined type sequence
+let userProfile: [username: string, age: number, isStudent: boolean];
+userProfile = ['Rasel', 24, true];
 
-// unions
-let value: string | number;
-value = 'name';
-value = 24;
+// Union Types: Variables that can hold multiple types
+let dynamicValue: string | number;
+dynamicValue = 'customer name';
+dynamicValue = 42;
 
-// type aliases
-type Id = string | number;
-let userId: Id = 'Tom';
-userId = 234;
+// Type Aliases: Creating custom types for complex or reusable type definitions
+type Identifier = string | number;
+let productId: Identifier = 'PROD001';
+productId = 12345;
 
-// practice
-type Person = {
-  name: string;
+// Object Type: Defining a structured object with specific property types
+type CustomerProfile = {
+  fullName: string;
   age: number;
-  isStudent: boolean;
+  isUndergraduate: boolean;
 };
 
-let person: Person = {
-  name: 'Tom',
+let customerProfile: CustomerProfile = {
+  fullName: 'Tom Anderson',
   age: 24,
-  isStudent: true,
+  isUndergraduate: true,
 };
 
-// console.log(`Hi I am ${person.name}, I am ${person.age} year old`);
-
-function add(a: number, b: number): number {
-  return a + b;
-}
-// console.log(add(3, 5));
-
-function greet(name: string, age?: number): string {
-  if (age) {
-    return `${name}, ${age}`;
-  }
-  return `hello ${name}`;
+// Function with Explicit Type Annotations: Defining input and output types
+function calculateSum(firstNumber: number, secondNumber: number): number {
+  return firstNumber + secondNumber;
 }
 
-function multiply(a: number, b: number = 3): number {
-  return a * b;
+// Function with Optional Parameter: Parameter that may or may not be provided
+function generateGreeting(name: string, age?: number): string {
+  return age ? `Hello ${name}, you are ${age} years old` : `Hello ${name}`;
 }
 
-type AddFn = (a: number, b: number) => number;
+// Function with Default Parameter: Providing a default value if not specified
+function calculateProduct(baseValue: number, multiplier: number = 3): number {
+  return baseValue * multiplier;
+}
 
-const addNumbers: AddFn = (a, b) => a + b;
+// Function Type Alias: Defining a type for function signatures
+type MathOperation = (a: number, b: number) => number;
 
-interface User {
+// Arrow Function with Type Alias
+const performAddition: MathOperation = (x, y) => x + y;
+
+// Interface: Defining a contract for object structure with additional features
+interface UserAccount {
   id: number;
-  name: string;
-  isAdmin: boolean;
-  description?: string;
-  readonly title: string;
+  username: string;
+  isAdministrator: boolean;
+  profileDescription?: string;
+  readonly accountCreatedAt: string;
 }
 
-let users: User = {
+let userAccount: UserAccount = {
   id: 79,
-  name: 'tom',
-  isAdmin: true,
-  title: 'good products',
+  username: 'tom_tech',
+  isAdministrator: true,
+  accountCreatedAt: '2023-06-15',
 };
-users.id = 70;
-// users.title = 'New title';
 
-class Birds {
-  name: string;
-  age: number;
+// Class: Object-oriented programming construct with type safety
+class Person {
+  // Private properties: Only accessible within the class
+  private name: string;
+  private age: number;
 
-  constructor(name: string, quantity: number) {
+  // Constructor: Initializes object properties
+  constructor(name: string, age: number) {
     this.name = name;
-    this.age = quantity;
+    this.age = age;
   }
 
-  like(): string {
-    return `I like ${this.name}`;
+  // Method with return type annotation
+  describePerson(): string {
+    return `I know ${this.name}`;
   }
-  buy(): number {
+
+  // Method returning a number
+  getAge(): number {
     return this.age;
   }
 }
 
-const bird = new Birds('Cuckoo', 1);
-console.log(bird.like());
+// Class Instantiation and Array of Class Type
+const person = new Person('Thomas', 30);
+let personArray: Person[] = [];
+
+console.log(person.describePerson());
+console.log(personArray);
+
+// Access modifier
+class Animal {
+  protected species: string;
+
+  constructor(species: string) {
+    this.species = species;
+  }
+
+  makeSound(): string {
+    return `This is a ${this.species}`;
+  }
+}
+
+class Dog extends Animal {
+  constructor() {
+    super('Dog');
+  }
+  bark(): string {
+    return `${this.species} says woof woof`;
+  }
+}
+
+let dog = new Dog();
+console.log(dog.makeSound());
+console.log(dog.bark());
