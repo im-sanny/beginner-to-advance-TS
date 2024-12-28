@@ -171,3 +171,14 @@ console.log(rect.area);
 
 rect.dimension = { width: 20, height: 30 };
 console.log(rect.area);
+
+// Static Methods and Properties
+class MathUtil {
+  static Pi: number = 3.14;
+
+  static calculateCircumference(radius: number): number {
+    return 2 * this.Pi * radius;
+  }
+}
+console.log(MathUtil.Pi);
+console.log(MathUtil.calculateCircumference(10));
