@@ -127,5 +127,47 @@ class Dog extends Animal {
 }
 
 let dog = new Dog();
-console.log(dog.makeSound());
-console.log(dog.bark());
+// console.log(dog.makeSound());
+// console.log(dog.bark());
+
+// readOnly
+class Car {
+  readonly brand: string;
+
+  constructor(brand: string) {
+    this.brand = brand;
+  }
+  makeSound(): string {
+    return `${this.brand} produce good car`;
+  }
+}
+
+const getCar = new Car('Ford');
+console.log(getCar.makeSound());
+console.log(getCar.brand);
+// getCar.brand = 'Jaguar' //Error - Cannot assign to 'brand' because it is a read-only property
+
+// getter and setter
+class Rectangle {
+  private width: number;
+  private height: number;
+
+  constructor(width: number, height: number) {
+    this.width = width;
+    this.height = height;
+  }
+  get area(): number {
+    return this.width * this.height;
+  }
+
+  set dimension(dimension: { width: number; height: number }) {
+    this.width = dimension.width;
+    this.height = dimension.height;
+  }
+}
+
+const rect = new Rectangle(5, 10);
+console.log(rect.area);
+
+rect.dimension = { width: 20, height: 30 };
+console.log(rect.area);

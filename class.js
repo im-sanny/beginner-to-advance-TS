@@ -41,3 +41,33 @@ class Cuckoo extends Bird {
 const bird = new Cuckoo();
 console.log(bird.makeSound());
 console.log(bird.sing());
+//Readonly
+class Books {
+    constructor(name) {
+        this.name = name;
+    }
+    read() {
+        return `I suggest you to read ${this.name}`;
+    }
+}
+const book = new Books('Three Musketeers');
+console.log(book.read());
+// book.name = 'Monte Cristo'; //Error: Cannot assign to 'name' because it is a read-only property.
+// getter and setter
+class Box {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+    get area() {
+        return this.width + this.height;
+    }
+    set shape(shape) {
+        this.width = shape.width;
+        this.height = shape.height;
+    }
+}
+const box = new Box(34, 40);
+console.log(box.area);
+box.shape = { width: 40, height: 40 };
+console.log(box.area);
