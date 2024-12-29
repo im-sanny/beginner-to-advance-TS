@@ -129,3 +129,21 @@ class Calculate {
 console.log(Calculate.add);
 console.log(Calculate.total(30));
 console.log(Calculate.minus(30));
+
+
+class Employee{
+  private id: number;
+  name: string;
+
+  constructor(id: number, name: string){
+    this.id = id
+    this.name = name
+  }
+  getDetails(): string{
+    return `Employee id ${this.id}, employee name ${this.name}`
+  }
+}
+
+const employee = new Employee(69, 'lol')
+console.log(employee.getDetails());
+

@@ -95,3 +95,14 @@ Calculate.add = 7;
 console.log(Calculate.add);
 console.log(Calculate.total(30));
 console.log(Calculate.minus(30));
+class Employee {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    getDetails() {
+        return `Employee id ${this.id}, employee name ${this.name}`;
+    }
+}
+const employee = new Employee(69, 'lol');
+console.log(employee.getDetails());
