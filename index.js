@@ -147,6 +147,22 @@ class Data {
     }
 }
 const numberHolder = new Data(33);
-console.log(numberHolder.getData());
+// console.log(numberHolder.getData());
 numberHolder.setData(3333333);
-console.log(numberHolder.getData());
+// console.log(numberHolder.getData());
+// numeric enum
+var Stat;
+(function (Stat) {
+    Stat[Stat["Active"] = 1] = "Active";
+    Stat[Stat["Inactive"] = 2] = "Inactive";
+    Stat[Stat["Pending"] = 3] = "Pending";
+})(Stat || (Stat = {}));
+console.log(Stat.Inactive);
+// string enum
+var Color;
+(function (Color) {
+    Color["White"] = "WHITE";
+    Color["Orange"] = "ORANGE";
+    Color["Yellow"] = "YELLOW";
+})(Color || (Color = {}));
+console.log(Color.Yellow);

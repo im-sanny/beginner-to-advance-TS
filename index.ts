@@ -213,6 +213,22 @@ class Data<T> {
   }
 }
 const numberHolder = new Data<number>(33);
-console.log(numberHolder.getData());
+// console.log(numberHolder.getData());
 numberHolder.setData(3333333);
-console.log(numberHolder.getData());
+// console.log(numberHolder.getData());
+
+// numeric enum
+enum Stat {
+  Active = 1,
+  Inactive,
+  Pending,
+}
+console.log(Stat.Inactive);
+
+// string enum
+enum Color {
+  White = 'WHITE',
+  Orange = 'ORANGE',
+  Yellow = 'YELLOW',
+}
+console.log(Color.Yellow);

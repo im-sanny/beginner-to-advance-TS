@@ -173,6 +173,22 @@ class Data2<T> {
 }
 
 const dataHolder1 = new Data2<string>('hello from practice');
-console.log(dataHolder1.getData());
+// console.log(dataHolder1.getData());
 dataHolder1.setData('update in practice');
-console.log(dataHolder1.getData());
+// console.log(dataHolder1.getData());
+
+// numeric enum
+enum Days {
+  Day1 = 1,
+  Day2,
+  Day3,
+}
+console.log(Days.Day2);
+
+// string enum
+enum Colors3 {
+  Black = 'BLACK',
+  Gray = 'GRAY',
+  Pink = 'PINK',
+}
+console.log(Colors3.Gray);

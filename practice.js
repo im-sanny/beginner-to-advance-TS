@@ -129,6 +129,22 @@ class Data2 {
     }
 }
 const dataHolder1 = new Data2('hello from practice');
-console.log(dataHolder1.getData());
+// console.log(dataHolder1.getData());
 dataHolder1.setData('update in practice');
-console.log(dataHolder1.getData());
+// console.log(dataHolder1.getData());
+// numeric enum
+var Days;
+(function (Days) {
+    Days[Days["Day1"] = 1] = "Day1";
+    Days[Days["Day2"] = 2] = "Day2";
+    Days[Days["Day3"] = 3] = "Day3";
+})(Days || (Days = {}));
+console.log(Days.Day2);
+// string enum
+var Colors3;
+(function (Colors3) {
+    Colors3["Black"] = "BLACK";
+    Colors3["Gray"] = "GRAY";
+    Colors3["Pink"] = "PINK";
+})(Colors3 || (Colors3 = {}));
+console.log(Colors3.Gray);
