@@ -101,8 +101,8 @@ class Person {
 const person = new Person('Thomas', 30);
 let personArray: Person[] = [];
 
-console.log(person.describePerson());
-console.log(personArray);
+// console.log(person.describePerson());
+// console.log(personArray);
 
 // Access modifier
 class Animal {
@@ -143,8 +143,8 @@ class Car {
 }
 
 const getCar = new Car('Ford');
-console.log(getCar.makeSound());
-console.log(getCar.brand);
+// console.log(getCar.makeSound());
+// console.log(getCar.brand);
 // getCar.brand = 'Jaguar' //Error - Cannot assign to 'brand' because it is a read-only property
 
 // getter and setter
@@ -167,10 +167,10 @@ class Rectangle {
 }
 
 const rect = new Rectangle(5, 10);
-console.log(rect.area);
+// console.log(rect.area);
 
 rect.dimension = { width: 20, height: 30 };
-console.log(rect.area);
+// console.log(rect.area);
 
 // Static Methods and Properties
 class MathUtil {
@@ -180,18 +180,39 @@ class MathUtil {
     return 2 * this.Pi * radius;
   }
 }
-console.log(MathUtil.Pi);
-console.log(MathUtil.calculateCircumference(10));
+// console.log(MathUtil.Pi);
+// console.log(MathUtil.calculateCircumference(10));
 
 //generic
 function identity<T>(value: T): T {
   return value;
 }
-console.log(identity<string>('hello'));
+// console.log(identity<string>('hello'));
 
 // generic array
 function item<T>(value: T[]): T[] {
   return value;
 }
-console.log(item<number>([1, 2, 3]));
-console.log(item<string>(['a', 'b', 'c', 'd']));
+// console.log(item<number>([1, 2, 3]));
+// console.log(item<string>(['a', 'b', 'c', 'd']));
+
+// generic class
+class Data<T> {
+  private data: T;
+
+  constructor(data: T) {
+    this.data = data;
+  }
+
+  getData(): T {
+    return this.data;
+  }
+
+  setData(data: T): void {
+    this.data = data;
+  }
+}
+const numberHolder = new Data<number>(33);
+console.log(numberHolder.getData());
+numberHolder.setData(3333333);
+console.log(numberHolder.getData());

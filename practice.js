@@ -9,7 +9,7 @@ const electricVehicle = {
     modelName: 'Model S',
     manufacturingYear: 2022,
 };
-console.log(describeVehicle(electricVehicle));
+// console.log(describeVehicle(electricVehicle));
 // Continent Class with Access Modifiers
 class ContinentInformation {
     constructor(name, countryCount) {
@@ -27,8 +27,8 @@ class ContinentInformation {
 }
 // Creating continent instance
 const continentDetails = new ContinentInformation('Europe', 24);
-console.log(continentDetails.describeContinentFavorite());
-console.log(continentDetails.getTotalCountries());
+// console.log(continentDetails.describeContinentFavorite());
+// console.log(continentDetails.getTotalCountries());
 // console.log(continentDetails.numberOfCountries); // Would cause an error
 // Protected Modifier Example
 class BasePet {
@@ -52,8 +52,8 @@ class SpecificPet extends BasePet {
 }
 // Creating and using pet instances
 const myPet = new SpecificPet();
-console.log(myPet.makePetSound());
-console.log(myPet.introducePet());
+// console.log(myPet.makePetSound());
+// console.log(myPet.introducePet());
 // Readonly
 class Boomks {
     constructor(name) {
@@ -80,9 +80,9 @@ class Total {
     }
 }
 const total = new Total(3, 5);
-console.log(total.all);
+// console.log(total.all);
 total.idk = { width: 4, height: 8 };
-console.log(total.all);
+// console.log(total.all);
 class Calculate {
     static total(tot) {
         return 2 * this.add * tot;
@@ -92,9 +92,9 @@ class Calculate {
     }
 }
 Calculate.add = 7;
-console.log(Calculate.add);
-console.log(Calculate.total(30));
-console.log(Calculate.minus(30));
+// console.log(Calculate.add);
+// console.log(Calculate.total(30));
+// console.log(Calculate.minus(30));
 class Employee {
     constructor(id, name) {
         this.id = id;
@@ -105,14 +105,30 @@ class Employee {
     }
 }
 const employee = new Employee(69, 'lol');
-console.log(employee.getDetails());
+// console.log(employee.getDetails());
 // generics
 function greet(value) {
     return value;
 }
-console.log(greet('hello tom'));
+// console.log(greet<string>('hello tom'));
 // generic array
 function items(value) {
     return value;
 }
-console.log(items(['a', 'b', 'c']));
+// console.log(items<string>(['a', 'b', 'c']));
+// generic class
+class Data2 {
+    constructor(data) {
+        this.data2 = data;
+    }
+    getData() {
+        return this.data2;
+    }
+    setData(data2) {
+        this.data2 = data2;
+    }
+}
+const dataHolder1 = new Data2('hello from practice');
+console.log(dataHolder1.getData());
+dataHolder1.setData('update in practice');
+console.log(dataHolder1.getData());
