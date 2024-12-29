@@ -71,12 +71,12 @@ const box = new Box(34, 40);
 console.log(box.area);
 box.shape = { width: 40, height: 40 };
 console.log(box.area);
-// static
-class Square {
-    static total(tot) {
-        return 3 * this.lol * tot;
+// Static Method Calculation Utility
+class Calculator {
+    static total(value) {
+        return 3 * this.factor * value;
     }
 }
-Square.lol = 8;
-console.log(Square.lol);
-console.log(Square.total(40));
+Calculator.factor = 8;
+console.log(Calculator.factor);
+console.log(Calculator.total(40));

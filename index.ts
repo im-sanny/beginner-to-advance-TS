@@ -183,9 +183,15 @@ class MathUtil {
 console.log(MathUtil.Pi);
 console.log(MathUtil.calculateCircumference(10));
 
-
 //generic
-function identity<T>(value: T): T{
+function identity<T>(value: T): T {
   return value;
 }
 console.log(identity<string>('hello'));
+
+// generic array
+function item<T>(value: T[]): T[] {
+  return value;
+}
+console.log(item<number>([1, 2, 3]));
+console.log(item<string>(['a', 'b', 'c', 'd']));

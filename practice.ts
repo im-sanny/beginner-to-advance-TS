@@ -150,3 +150,9 @@ function greet<T>(value: T): T {
   return value;
 }
 console.log(greet<string>('hello tom'));
+
+// generic array
+function items<T>(value: T[]): T[] {
+  return value;
+}
+console.log(items<string>(['a', 'b', 'c']));

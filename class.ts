@@ -93,13 +93,14 @@ console.log(box.area);
 box.shape = { width: 40, height: 40 };
 console.log(box.area);
 
-// static
-class Square {
-  static lol: number = 8;
+// Static Method Calculation Utility
+class Calculator {
+  static factor: number = 8;
 
-  static total(tot: number): number {
-    return 3 * this.lol * tot;
+  static total(value: number): number {
+    return 3 * this.factor * value;
   }
 }
-console.log(Square.lol);
-console.log(Square.total(40));
+
+console.log(Calculator.factor);
+console.log(Calculator.total(40));

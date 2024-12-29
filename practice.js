@@ -111,3 +111,8 @@ function greet(value) {
     return value;
 }
 console.log(greet('hello tom'));
+// generic array
+function items(value) {
+    return value;
+}
+console.log(items(['a', 'b', 'c']));

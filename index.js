@@ -128,3 +128,9 @@ function identity(value) {
     return value;
 }
 console.log(identity('hello'));
+// generic array
+function item(value) {
+    return value;
+}
+console.log(item([1, 2, 3]));
+console.log(item(['a', 'b', 'c', 'd']));
