@@ -114,3 +114,12 @@ const rect = new Rectangle(5, 10);
 console.log(rect.area);
 rect.dimension = { width: 20, height: 30 };
 console.log(rect.area);
+// Static Methods and Properties
+class MathUtil {
+    static calculateCircumference(radius) {
+        return 2 * this.Pi * radius;
+    }
+}
+MathUtil.Pi = 3.14;
+console.log(MathUtil.Pi);
+console.log(MathUtil.calculateCircumference(10));

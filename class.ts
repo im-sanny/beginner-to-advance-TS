@@ -92,3 +92,14 @@ const box = new Box(34, 40);
 console.log(box.area);
 box.shape = { width: 40, height: 40 };
 console.log(box.area);
+
+// static
+class Square {
+  static lol: number = 8;
+
+  static total(tot: number): number {
+    return 3 * this.lol * tot;
+  }
+}
+console.log(Square.lol);
+console.log(Square.total(40));

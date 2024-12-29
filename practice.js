@@ -83,3 +83,15 @@ const total = new Total(3, 5);
 console.log(total.all);
 total.idk = { width: 4, height: 8 };
 console.log(total.all);
+class Calculate {
+    static total(tot) {
+        return 2 * this.add * tot;
+    }
+    static minus(mi) {
+        return this.add - mi;
+    }
+}
+Calculate.add = 7;
+console.log(Calculate.add);
+console.log(Calculate.total(30));
+console.log(Calculate.minus(30));
