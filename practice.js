@@ -106,3 +106,8 @@ class Employee {
 }
 const employee = new Employee(69, 'lol');
 console.log(employee.getDetails());
+// generics
+function greet(value) {
+    return value;
+}
+console.log(greet('hello tom'));

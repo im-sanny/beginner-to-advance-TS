@@ -123,3 +123,8 @@ class MathUtil {
 MathUtil.Pi = 3.14;
 console.log(MathUtil.Pi);
 console.log(MathUtil.calculateCircumference(10));
+//generic
+function identity(value) {
+    return value;
+}
+console.log(identity('hello'));

@@ -182,3 +182,10 @@ class MathUtil {
 }
 console.log(MathUtil.Pi);
 console.log(MathUtil.calculateCircumference(10));
+
+
+//generic
+function identity<T>(value: T): T{
+  return value;
+}
+console.log(identity<string>('hello'));

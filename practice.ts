@@ -115,35 +115,38 @@ console.log(total.all);
 total.idk = { width: 4, height: 8 };
 console.log(total.all);
 
-
 class Calculate {
   static add: number = 7;
 
   static total(tot: number): number {
     return 2 * this.add * tot;
   }
-  static minus(mi:number):number{
-    return this.add - mi
+  static minus(mi: number): number {
+    return this.add - mi;
   }
 }
 console.log(Calculate.add);
 console.log(Calculate.total(30));
 console.log(Calculate.minus(30));
 
-
-class Employee{
+class Employee {
   private id: number;
   name: string;
 
-  constructor(id: number, name: string){
-    this.id = id
-    this.name = name
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
   }
-  getDetails(): string{
-    return `Employee id ${this.id}, employee name ${this.name}`
+  getDetails(): string {
+    return `Employee id ${this.id}, employee name ${this.name}`;
   }
 }
 
-const employee = new Employee(69, 'lol')
+const employee = new Employee(69, 'lol');
 console.log(employee.getDetails());
 
+// generics
+function greet<T>(value: T): T {
+  return value;
+}
+console.log(greet<string>('hello tom'));
