@@ -232,3 +232,36 @@ enum Color {
   Yellow = 'YELLOW',
 }
 console.log(Color.Yellow);
+
+function add(value: number | string): number {
+  if (typeof value === 'number') {
+    return 2 + value;
+  } else {
+    return parseInt(value + 4);
+  }
+}
+console.log(add(1));
+
+
+// instanceof
+class Cat {
+  meow() {
+    return 'Meow!';
+  }
+}
+class Cow {
+  moo() {
+    return 'Moo! Moo!';
+  }
+}
+
+function getSound(animal: Cat | Cow) {
+  if (animal instanceof Cat) {
+    return animal.meow();
+  } else {
+    return animal.moo();
+  }
+}
+
+const cat = new Cat();
+console.log(getSound(cat));

@@ -192,3 +192,5 @@ enum Colors3 {
   Pink = 'PINK',
 }
 console.log(Colors3.Gray);
+
+

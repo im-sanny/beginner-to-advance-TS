@@ -166,3 +166,12 @@ var Color;
     Color["Yellow"] = "YELLOW";
 })(Color || (Color = {}));
 console.log(Color.Yellow);
+function add(value) {
+    if (typeof value === 'number') {
+        return 2 + value;
+    }
+    else {
+        return parseInt(value + 4);
+    }
+}
+console.log(add('hu'));
