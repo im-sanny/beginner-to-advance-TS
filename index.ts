@@ -233,6 +233,7 @@ enum Color {
 }
 console.log(Color.Yellow);
 
+// typeof
 function add(value: number | string): number {
   if (typeof value === 'number') {
     return 2 + value;
@@ -241,7 +242,6 @@ function add(value: number | string): number {
   }
 }
 console.log(add(1));
-
 
 // instanceof
 class Cat {
@@ -265,3 +265,23 @@ function getSound(animal: Cat | Cow) {
 
 const cat = new Cat();
 console.log(getSound(cat));
+
+enum Role {
+  Admin = 'Admin',
+  User = 'User',
+  Guest = 'Guest',
+}
+
+function getRoleMessage(role: Role): string {
+  switch (role) {
+    case Role.Admin:
+      return 'u have full access';
+    case Role.User:
+      return 'u have limited access';
+    case Role.Guest:
+      return 'u have guest access';
+    default:
+      return 'unknown role';
+  }
+}
+console.log(getRoleMessage(Role.Admin));

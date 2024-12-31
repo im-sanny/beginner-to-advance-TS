@@ -193,4 +193,35 @@ enum Colors3 {
 }
 console.log(Colors3.Gray);
 
+// typeof
+function subtract(value: string | number): number {
+  if (typeof value === 'number') {
+    return value - 4;
+  } else {
+    return parseInt(value);
+  }
+}
+console.log(subtract(6));
 
+// instanceof
+class Rose{
+  look(){
+    return 'Rose is beautiful'
+  }
+}
+
+class Lily{
+  smell(){
+    return 'Lily is smell less flower'
+  }
+}
+
+function aboutF(flower: Rose | Lily){
+  if (flower instanceof Rose) {
+    return flower.look()
+  } else {
+    return flower.smell()
+  }
+}
+const rose = new Rose()
+console.log(aboutF(rose));
