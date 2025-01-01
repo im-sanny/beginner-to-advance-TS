@@ -166,6 +166,7 @@ var Color;
     Color["Yellow"] = "YELLOW";
 })(Color || (Color = {}));
 console.log(Color.Yellow);
+// typeof
 function add(value) {
     if (typeof value === 'number') {
         return 2 + value;
@@ -174,4 +175,44 @@ function add(value) {
         return parseInt(value + 4);
     }
 }
-console.log(add('hu'));
+console.log(add(1));
+// instanceof
+class Cat {
+    meow() {
+        return 'Meow!';
+    }
+}
+class Cow {
+    moo() {
+        return 'Moo! Moo!';
+    }
+}
+function getSound(animal) {
+    if (animal instanceof Cat) {
+        return animal.meow();
+    }
+    else {
+        return animal.moo();
+    }
+}
+const cat = new Cat();
+console.log(getSound(cat));
+var Role;
+(function (Role) {
+    Role["Admin"] = "Admin";
+    Role["User"] = "User";
+    Role["Guest"] = "Guest";
+})(Role || (Role = {}));
+function getRoleMessage(role) {
+    switch (role) {
+        case Role.Admin:
+            return 'u have full access';
+        case Role.User:
+            return 'u have limited access';
+        case Role.Guest:
+            return 'u have guest access';
+        default:
+            return 'unknown role';
+    }
+}
+console.log(getRoleMessage(Role.Admin));

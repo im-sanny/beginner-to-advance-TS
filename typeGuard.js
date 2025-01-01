@@ -8,3 +8,24 @@ function double(value) {
     }
 }
 console.log(double(20));
+// instanceof
+class Tiger {
+    roar() {
+        return 'roarrrr';
+    }
+}
+class Goat {
+    call() {
+        return 'maa maa';
+    }
+}
+function animal2(animal2) {
+    if (animal2 instanceof Tiger) {
+        return animal2.roar();
+    }
+    else {
+        return animal2.call();
+    }
+}
+const tiger = new Tiger();
+console.log(animal2(tiger));
