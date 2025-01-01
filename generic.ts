@@ -30,3 +30,14 @@ const dataHolder = new Data1<string>('hi from generic class');
 // console.log(dataHolder.getData());
 // dataHolder.setData('lets update');
 // console.log(dataHolder.getData());
+
+// Generic Constraints
+interface HasLength {
+  length: number;
+}
+
+function logLength<T extends HasLength>(item: T): void {
+  console.log(`Length ${item.length}`);
+}
+logLength('hello form length function');
+logLength([1, 2, 3]);

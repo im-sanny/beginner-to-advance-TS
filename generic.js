@@ -23,6 +23,8 @@ class Data1 {
     }
 }
 const dataHolder = new Data1('hi from generic class');
-// console.log(dataHolder.getData());
-// dataHolder.setData('lets update');
-// console.log(dataHolder.getData());
+function logLength(item) {
+    console.log(`Length ${item.length}`);
+}
+logLength('hello form length function');
+logLength([1, 2, 3]);
