@@ -183,7 +183,7 @@ enum Days {
   Day2,
   Day3,
 }
-console.log(Days.Day2);
+// console.log(Days.Day2);
 
 // string enum
 enum Colors3 {
@@ -191,7 +191,7 @@ enum Colors3 {
   Gray = 'GRAY',
   Pink = 'PINK',
 }
-console.log(Colors3.Gray);
+// console.log(Colors3.Gray);
 
 // typeof
 function subtract(value: string | number): number {
@@ -201,7 +201,7 @@ function subtract(value: string | number): number {
     return parseInt(value);
   }
 }
-console.log(subtract(6));
+// console.log(subtract(6));
 
 // instanceof
 class Rose {
@@ -224,7 +224,7 @@ function aboutF(flower: Rose | Lily) {
   }
 }
 const rose = new Rose();
-console.log(aboutF(rose));
+// console.log(aboutF(rose));
 
 enum Access {
   cow = 'Cow',
@@ -244,7 +244,7 @@ function animalCall(call: Access): string {
       return 'animal not identified';
   }
 }
-console.log(animalCall(Access.cat));
+// console.log(animalCall(Access.cat));
 
 //  Generic Constraints
 interface FullLength {
@@ -267,4 +267,15 @@ function fName<T, K extends keyof T>(obj: T, key: K): T[K] {
   return obj[key];
 }
 const pName = { id: 3, name: 'User3' };
-console.log(pName);
+// console.log(pName);
+
+// Generic utility type
+interface ToDo1 {
+  title: string;
+  description: string;
+  completed: boolean;
+}
+type PartialTodo1 = Partial<ToDo1>;
+type ReadonlyTodo1 = Readonly<ToDo1>;
+type PickTodo1 = Pick<ToDo1, 'title' | 'description'>;
+type OmitTodo1 = Omit<ToDo1, 'completed'>;

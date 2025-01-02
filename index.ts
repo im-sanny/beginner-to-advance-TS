@@ -223,7 +223,7 @@ enum Stat {
   Inactive,
   Pending,
 }
-console.log(Stat.Inactive);
+// console.log(Stat.Inactive);
 
 // string enum
 enum Color {
@@ -231,7 +231,7 @@ enum Color {
   Orange = 'ORANGE',
   Yellow = 'YELLOW',
 }
-console.log(Color.Yellow);
+// console.log(Color.Yellow);
 
 // typeof
 function add(value: number | string): number {
@@ -241,7 +241,7 @@ function add(value: number | string): number {
     return parseInt(value + 4);
   }
 }
-console.log(add(1));
+// console.log(add(1));
 
 // instanceof
 class Cat {
@@ -264,7 +264,7 @@ function getSound(animal: Cat | Cow) {
 }
 
 const cat = new Cat();
-console.log(getSound(cat));
+// console.log(getSound(cat));
 
 enum Role {
   Admin = 'Admin',
@@ -284,7 +284,7 @@ function getRoleMessage(role: Role): string {
       return 'unknown role';
   }
 }
-console.log(getRoleMessage(Role.Admin));
+// console.log(getRoleMessage(Role.Admin));
 
 interface Length {
   length: number;
@@ -300,4 +300,15 @@ function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
   return obj[key];
 }
 const user = { id: 1, name: 'Zari' };
-console.log(user.name);
+// console.log(user.name);
+
+// generic utility type
+interface Do {
+  title: string;
+  description: string;
+  completed: boolean;
+}
+type PartialDo = Partial<Do>;
+type ReadonlyDo = Readonly<Do>;
+type PickDo = Pick<Do, 'title' | 'completed'>;
+type OmitDo = Omit<Dog, 'completed'>;

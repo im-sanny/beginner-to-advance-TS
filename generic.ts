@@ -37,7 +37,7 @@ interface HasLength {
 }
 
 function logLength<T extends HasLength>(item: T): void {
-  console.log(`Length ${item.length}`);
+  // console.log(`Length ${item.length}`);
 }
 logLength('hello form length function');
 logLength([1, 2, 3]);
@@ -47,4 +47,15 @@ function holdProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
   return obj[key];
 }
 const user1 = { id: 2, name: 'User2' };
-console.log(user1);
+// console.log(user1);
+
+// generic utility type
+interface Todo {
+  title: string;
+  description: string;
+  completed: boolean;
+}
+type PartialTodo = Partial<Todo>;
+type ReadonlyTodo = Readonly<Todo>;
+type PickTodo = Pick<Todo, 'title' | 'completed'>;
+type OmitTodo = Omit<Todo, 'description'>;
