@@ -179,3 +179,22 @@ function aboutF(flower) {
 }
 const rose = new Rose();
 console.log(aboutF(rose));
+var Access;
+(function (Access) {
+    Access["cow"] = "Cow";
+    Access["cat"] = "Cat";
+    Access["crow"] = "Crow";
+})(Access || (Access = {}));
+function animalCall(call) {
+    switch (call) {
+        case Access.cow:
+            return 'cow says moo moo';
+        case Access.cat:
+            return 'cat says meow meow';
+        case Access.crow:
+            return 'crow says ka ka';
+        default:
+            return 'animal not identified';
+    }
+}
+console.log(animalCall(Access.cat));

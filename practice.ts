@@ -204,24 +204,44 @@ function subtract(value: string | number): number {
 console.log(subtract(6));
 
 // instanceof
-class Rose{
-  look(){
-    return 'Rose is beautiful'
+class Rose {
+  look() {
+    return 'Rose is beautiful';
   }
 }
 
-class Lily{
-  smell(){
-    return 'Lily is smell less flower'
+class Lily {
+  smell() {
+    return 'Lily is smell less flower';
   }
 }
 
-function aboutF(flower: Rose | Lily){
+function aboutF(flower: Rose | Lily) {
   if (flower instanceof Rose) {
-    return flower.look()
+    return flower.look();
   } else {
-    return flower.smell()
+    return flower.smell();
   }
 }
-const rose = new Rose()
+const rose = new Rose();
 console.log(aboutF(rose));
+
+enum Access {
+  cow = 'Cow',
+  cat = 'Cat',
+  crow = 'Crow',
+}
+
+function animalCall(call: Access): string {
+  switch (call) {
+    case Access.cow:
+      return 'cow says moo moo';
+    case Access.cat:
+      return 'cat says meow meow';
+    case Access.crow:
+      return 'crow says ka ka';
+    default:
+      return 'animal not identified';
+  }
+}
+console.log(animalCall(Access.cat));

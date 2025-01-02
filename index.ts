@@ -285,3 +285,12 @@ function getRoleMessage(role: Role): string {
   }
 }
 console.log(getRoleMessage(Role.Admin));
+
+interface Length {
+  length: number;
+}
+function measure<T extends Length>(item: T): void {
+  console.log(`measured length is ${item.length}`);
+}
+measure('item');
+measure([1, 2, 3]);

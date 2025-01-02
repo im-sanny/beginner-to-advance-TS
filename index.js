@@ -216,3 +216,8 @@ function getRoleMessage(role) {
     }
 }
 console.log(getRoleMessage(Role.Admin));
+function measure(item) {
+    console.log(`measured length is ${item.length}`);
+}
+measure('item');
+measure([1, 2, 3]);
