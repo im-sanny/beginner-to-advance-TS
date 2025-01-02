@@ -294,3 +294,10 @@ function measure<T extends Length>(item: T): void {
 }
 measure('item');
 measure([1, 2, 3]);
+
+// keyof with generics
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+const user = { id: 1, name: 'Zari' };
+console.log(user.name);

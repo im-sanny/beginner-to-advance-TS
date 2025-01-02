@@ -28,3 +28,9 @@ function logLength(item) {
 }
 logLength('hello form length function');
 logLength([1, 2, 3]);
+// key of with generics
+function holdProperty(obj, key) {
+    return obj[key];
+}
+const user1 = { id: 2, name: "User2" };
+console.log(user1, name);

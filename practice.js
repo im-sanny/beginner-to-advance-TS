@@ -198,3 +198,13 @@ function animalCall(call) {
     }
 }
 console.log(animalCall(Access.cat));
+function countAll(item) {
+    if (item.length) {
+        return console.log(`total length is ${item.length}`);
+    }
+    else {
+        return console.log(`total string is ${item.count}`);
+    }
+}
+countAll('string');
+countAll([1, 2, 3]);

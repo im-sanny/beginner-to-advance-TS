@@ -221,3 +221,9 @@ function measure(item) {
 }
 measure('item');
 measure([1, 2, 3]);
+// key of with generics
+function getProperty(obj, key) {
+    return obj[key];
+}
+const user = { id: 1, name: 'Zari' };
+console.log(user.name);

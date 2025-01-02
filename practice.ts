@@ -245,3 +245,26 @@ function animalCall(call: Access): string {
   }
 }
 console.log(animalCall(Access.cat));
+
+//  Generic Constraints
+interface FullLength {
+  length: number;
+  count?: string;
+}
+
+function countAll<T extends FullLength>(item: T): void {
+  if (item.length) {
+    return console.log(`total length is ${item.length}`);
+  } else {
+    return console.log(`total string is ${item.count}`);
+  }
+}
+countAll('string');
+countAll([1, 2, 3]);
+
+// keyof with generics
+function fName<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+const pName = { id: 3, name: 'User3' };
+console.log(pName);

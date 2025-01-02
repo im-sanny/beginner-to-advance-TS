@@ -41,3 +41,10 @@ function logLength<T extends HasLength>(item: T): void {
 }
 logLength('hello form length function');
 logLength([1, 2, 3]);
+
+// keyof with generics
+function holdProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+const user1 = { id: 2, name: 'User2' };
+console.log(user1);
