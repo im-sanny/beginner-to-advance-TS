@@ -312,3 +312,16 @@ type PartialDo = Partial<Do>;
 type ReadonlyDo = Readonly<Do>;
 type PickDo = Pick<Do, 'title' | 'completed'>;
 type OmitDo = Omit<Dog, 'completed'>;
+
+// class decorator
+// Think of it like a security camera system in a store:
+function SecurityCamera(store: Function) {
+  console.log(`Monitoring: ${store.name}`);
+}
+// Put security cameras in the store
+@SecurityCamera
+class GroceryStore {
+  constructor(public name: string) {}
+}
+// When store opens, security system activates automatically
+const myStore = new GroceryStore('Walmart');

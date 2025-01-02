@@ -1,4 +1,42 @@
 "use strict";
+var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
+    function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
+    var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
+    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
+    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+    var _, done = false;
+    for (var i = decorators.length - 1; i >= 0; i--) {
+        var context = {};
+        for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+        for (var p in contextIn.access) context.access[p] = contextIn.access[p];
+        context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
+        var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+        if (kind === "accessor") {
+            if (result === void 0) continue;
+            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
+            if (_ = accept(result.get)) descriptor.get = _;
+            if (_ = accept(result.set)) descriptor.set = _;
+            if (_ = accept(result.init)) initializers.unshift(_);
+        }
+        else if (_ = accept(result)) {
+            if (kind === "field") initializers.unshift(_);
+            else descriptor[key] = _;
+        }
+    }
+    if (target) Object.defineProperty(target, contextIn.name, descriptor);
+    done = true;
+};
+var __runInitializers = (this && this.__runInitializers) || function (thisArg, initializers, value) {
+    var useValue = arguments.length > 2;
+    for (var i = 0; i < initializers.length; i++) {
+        value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+    }
+    return useValue ? value : void 0;
+};
+var __setFunctionName = (this && this.__setFunctionName) || function (f, name, prefix) {
+    if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
+    return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+};
 // Function to describe vehicle
 function describeVehicle(vehicleDetails) {
     return `Car manufacturer is ${vehicleDetails.manufacturer}, model ${vehicleDetails.modelName}, made in ${vehicleDetails.manufacturingYear}`;
@@ -139,7 +177,7 @@ var Days;
     Days[Days["Day2"] = 2] = "Day2";
     Days[Days["Day3"] = 3] = "Day3";
 })(Days || (Days = {}));
-console.log(Days.Day2);
+// console.log(Days.Day2);
 // string enum
 var Colors3;
 (function (Colors3) {
@@ -147,7 +185,7 @@ var Colors3;
     Colors3["Gray"] = "GRAY";
     Colors3["Pink"] = "PINK";
 })(Colors3 || (Colors3 = {}));
-console.log(Colors3.Gray);
+// console.log(Colors3.Gray);
 // typeof
 function subtract(value) {
     if (typeof value === 'number') {
@@ -157,7 +195,7 @@ function subtract(value) {
         return parseInt(value);
     }
 }
-console.log(subtract(6));
+// console.log(subtract(6));
 // instanceof
 class Rose {
     look() {
@@ -178,7 +216,7 @@ function aboutF(flower) {
     }
 }
 const rose = new Rose();
-console.log(aboutF(rose));
+// console.log(aboutF(rose));
 var Access;
 (function (Access) {
     Access["cow"] = "Cow";
@@ -197,7 +235,6 @@ function animalCall(call) {
             return 'animal not identified';
     }
 }
-console.log(animalCall(Access.cat));
 function countAll(item) {
     if (item.length) {
         return console.log(`total length is ${item.length}`);
@@ -208,3 +245,33 @@ function countAll(item) {
 }
 countAll('string');
 countAll([1, 2, 3]);
+// keyof with generics
+function fName(obj, key) {
+    return obj[key];
+}
+const pName = { id: 3, name: 'User3' };
+// class decorator
+function CountAll(toys) {
+    console.log(`new ${toys.name} is created`);
+}
+let Toy = (() => {
+    let _classDecorators = [CountAll];
+    let _classDescriptor;
+    let _classExtraInitializers = [];
+    let _classThis;
+    var Toy = _classThis = class {
+        constructor(name) {
+            this.name = name;
+        }
+    };
+    __setFunctionName(_classThis, "Toy");
+    (() => {
+        const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(null) : void 0;
+        __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
+        Toy = _classThis = _classDescriptor.value;
+        if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
+        __runInitializers(_classThis, _classExtraInitializers);
+    })();
+    return Toy = _classThis;
+})();
+const factory = new Toy('Rubber Ball');

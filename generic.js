@@ -24,13 +24,12 @@ class Data1 {
 }
 const dataHolder = new Data1('hi from generic class');
 function logLength(item) {
-    console.log(`Length ${item.length}`);
+    // console.log(`Length ${item.length}`);
 }
 logLength('hello form length function');
 logLength([1, 2, 3]);
-// key of with generics
+// keyof with generics
 function holdProperty(obj, key) {
     return obj[key];
 }
-const user1 = { id: 2, name: "User2" };
-console.log(user1, name);
+const user1 = { id: 2, name: 'User2' };

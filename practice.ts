@@ -279,3 +279,13 @@ type PartialTodo1 = Partial<ToDo1>;
 type ReadonlyTodo1 = Readonly<ToDo1>;
 type PickTodo1 = Pick<ToDo1, 'title' | 'description'>;
 type OmitTodo1 = Omit<ToDo1, 'completed'>;
+
+// class decorator
+function CountAll(toys: Function) {
+  console.log(`new ${toys.name} is created`);
+}
+@CountAll
+class Toy {
+  constructor(public name: string) {}
+}
+const factory = new Toy('Rubber Ball');
