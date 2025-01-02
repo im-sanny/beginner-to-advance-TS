@@ -289,3 +289,12 @@ class Toy {
   constructor(public name: string) {}
 }
 const factory = new Toy('Rubber Ball');
+
+// property decorator
+function Checker(target: any, propertyKey: string) {
+  console.log(`checking ${propertyKey}`);
+}
+class Check {
+  @Checker
+  username: string = 'Elephant';
+}

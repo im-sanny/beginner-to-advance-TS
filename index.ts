@@ -325,3 +325,12 @@ class GroceryStore {
 }
 // When store opens, security system activates automatically
 const myStore = new GroceryStore('Walmart');
+
+// property decorator
+function PropertyLogger(target: any, propertyKey: string) {
+  console.log(`accessed property is: ${propertyKey}`);
+}
+class User {
+  @PropertyLogger
+  name: string = 'tom';
+}
