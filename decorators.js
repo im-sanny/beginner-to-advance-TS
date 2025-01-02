@@ -34,3 +34,20 @@ __decorate([
     Log,
     __metadata("design:type", String)
 ], User4.prototype, "title", void 0);
+// method decorator
+function SquareLogger(target, propertyKey, descriptor) {
+    console.log(`Square method ${propertyKey}`);
+}
+class Square {
+    square(a, b) {
+        return a * b;
+    }
+}
+__decorate([
+    SquareLogger,
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:returntype", void 0)
+], Square.prototype, "square", null);
+const calcSquare = new Square();
+console.log(calcSquare.square(70, 62));

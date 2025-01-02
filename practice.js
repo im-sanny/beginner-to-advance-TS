@@ -248,3 +248,20 @@ __decorate([
     Checker,
     __metadata("design:type", String)
 ], Check.prototype, "username", void 0);
+// method decorator
+function MinusLogger(target, propertyKey, descriptor) {
+    console.log(`Minus method ${propertyKey}`);
+}
+class Minus {
+    minus(a, b) {
+        return a - b;
+    }
+}
+__decorate([
+    MinusLogger,
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:returntype", Number)
+], Minus.prototype, "minus", null);
+const totalMinus = new Minus();
+console.log(totalMinus.minus(10, 3));

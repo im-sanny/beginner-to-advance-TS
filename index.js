@@ -264,3 +264,20 @@ __decorate([
     PropertyLogger,
     __metadata("design:type", String)
 ], User.prototype, "name", void 0);
+// method decorator
+function MethodLogger(target, propertyKey, descriptor) {
+    console.log(`Method ${propertyKey}`);
+}
+class Calculator1 {
+    add(a, b) {
+        return a + b;
+    }
+}
+__decorate([
+    MethodLogger,
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:returntype", Number)
+], Calculator1.prototype, "add", null);
+const calc = new Calculator1();
+console.log(calc.add(1, 3));

@@ -334,3 +334,20 @@ class User {
   @PropertyLogger
   name: string = 'tom';
 }
+
+// method decorator
+function MethodLogger(
+  target:any,
+  propertyKey: string,
+  descriptor: PropertyDescriptor
+) {
+  console.log(`Method ${propertyKey}`);
+}
+class Calculator1 {
+ @MethodLogger
+  add(a: number, b: number): number {
+    return a + b;
+  }
+}
+const calc = new Calculator1();
+console.log(calc.add(1, 3));

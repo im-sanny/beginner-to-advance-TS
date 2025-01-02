@@ -298,3 +298,21 @@ class Check {
   @Checker
   username: string = 'Elephant';
 }
+
+// method decorator
+function MinusLogger(
+  target: any,
+  propertyKey: string,
+  descriptor: PropertyDescriptor
+) {
+  console.log(`Minus method ${propertyKey}`);
+}
+
+class Minus {
+  @MinusLogger
+  minus(a: number, b: number): number {
+    return a - b;
+  }
+}
+const totalMinus = new Minus();
+console.log(totalMinus.minus(10, 3));
