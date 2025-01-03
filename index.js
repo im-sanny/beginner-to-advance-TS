@@ -9,24 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 // Basic String Type Annotation: Explicitly defining a string variable
-let greeting = 'Hello TypeScript';
+let greetingMessage = 'Hello TypeScript';
 // Primitive Type Declarations: Strongly typed simple variables
-let customerName = 'Rasel';
-let customerAge = 24;
-let isCustomerEmployed = false;
+let customerFullName = 'Rasel';
+let customerAgeInYears = 24;
+let isCustomerCurrentlyEmployed = false;
 // Array Type Annotations: Typed arrays with specific element types
-let favoriteFruits = ['mango', 'litchi'];
-let productQuantities = [1, 2, 3, 4];
+let favoriteFruitList = ['mango', 'litchi'];
+let productQuantityList = [1, 2, 3, 4];
 // Tuple: Fixed-length array with predefined type sequence
-let userProfile;
-userProfile = ['Rasel', 24, true];
+let userProfileTuple;
+userProfileTuple = ['Rasel', 24, true];
 // Union Types: Variables that can hold multiple types
-let dynamicValue;
-dynamicValue = 'customer name';
-dynamicValue = 42;
-let productId = 'PROD001';
-productId = 12345;
-let customerProfile = {
+let flexibleValue;
+flexibleValue = 'customer name';
+flexibleValue = 42;
+let productIdentifier = 'PROD001';
+productIdentifier = 12345;
+let customerProfileObject = {
     fullName: 'Tom Anderson',
     age: 24,
     isUndergraduate: true,
@@ -36,16 +36,16 @@ function calculateSum(firstNumber, secondNumber) {
     return firstNumber + secondNumber;
 }
 // Function with Optional Parameter: Parameter that may or may not be provided
-function generateGreeting(name, age) {
+function generateGreetingMessage(name, age) {
     return age ? `Hello ${name}, you are ${age} years old` : `Hello ${name}`;
 }
 // Function with Default Parameter: Providing a default value if not specified
-function calculateProduct(baseValue, multiplier = 3) {
+function calculateProductValue(baseValue, multiplier = 3) {
     return baseValue * multiplier;
 }
 // Arrow Function with Type Alias
-const performAddition = (x, y) => x + y;
-let userAccount = {
+const performAdditionOperation = (x, y) => x + y;
+let userAccountObject = {
     id: 79,
     username: 'tom_tech',
     isAdministrator: true,
@@ -55,137 +55,145 @@ let userAccount = {
 class Person {
     // Constructor: Initializes object properties
     constructor(name, age) {
-        this.name = name;
-        this.age = age;
+        this.personName = name;
+        this.personAge = age;
     }
-    // Method with return type annotation
+    // Method with return type annotation: Describes the person
     describePerson() {
-        return `I know ${this.name}`;
+        return `I know ${this.personName}`;
     }
-    // Method returning a number
+    // Method returning a number: Gets the person's age
     getAge() {
-        return this.age;
+        return this.personAge;
     }
 }
 // Class Instantiation and Array of Class Type
-const person = new Person('Thomas', 30);
-let personArray = [];
-// console.log(person.describePerson());
-// console.log(personArray);
+const individualPerson = new Person('Thomas', 30);
+let personArrayList = [];
+// console.log(individualPerson.describePerson());
+// console.log(personArrayList);
 // Access modifier
 class Animal {
     constructor(species) {
-        this.species = species;
+        this.animalSpecies = species;
     }
+    // Method: Makes sound based on species
     makeSound() {
-        return `This is a ${this.species}`;
+        return `This is a ${this.animalSpecies}`;
     }
 }
 class Dog extends Animal {
     constructor() {
         super('Dog');
     }
+    // Method: Dog barks
     bark() {
-        return `${this.species} says woof woof`;
+        return `${this.animalSpecies} says woof woof`;
     }
 }
-let dog = new Dog();
-// console.log(dog.makeSound());
-// console.log(dog.bark());
+let dogInstance = new Dog();
+// console.log(dogInstance.makeSound());
+// console.log(dogInstance.bark());
 // readOnly
 class Car {
     constructor(brand) {
-        this.brand = brand;
+        this.carBrand = brand;
     }
+    // Method: Describes the sound of the car
     makeSound() {
-        return `${this.brand} produce good car`;
+        return `${this.carBrand} produces good cars`;
     }
 }
-const getCar = new Car('Ford');
-// console.log(getCar.makeSound());
-// console.log(getCar.brand);
-// getCar.brand = 'Jaguar' //Error - Cannot assign to 'brand' because it is a read-only property
+const fordCar = new Car('Ford');
+// console.log(fordCar.makeSound());
+// console.log(fordCar.carBrand);
+// fordCar.carBrand = 'Jaguar' //Error - Cannot assign to 'carBrand' because it is a read-only property
 // getter and setter
 class Rectangle {
     constructor(width, height) {
         this.width = width;
         this.height = height;
     }
+    // Getter: Calculates the area of the rectangle
     get area() {
         return this.width * this.height;
     }
+    // Setter: Updates the dimensions of the rectangle
     set dimension(dimension) {
         this.width = dimension.width;
         this.height = dimension.height;
     }
 }
-const rect = new Rectangle(5, 10);
-// console.log(rect.area);
-rect.dimension = { width: 20, height: 30 };
-// console.log(rect.area);
+const rectangleInstance = new Rectangle(5, 10);
+// console.log(rectangleInstance.area);
+rectangleInstance.dimension = { width: 20, height: 30 };
+// console.log(rectangleInstance.area);
 // Static Methods and Properties
-class MathUtil {
+class MathUtility {
+    // Static Method: Calculates the circumference of a circle
     static calculateCircumference(radius) {
-        return 2 * this.Pi * radius;
+        return 2 * this.PiValue * radius;
     }
 }
-MathUtil.Pi = 3.14;
-// console.log(MathUtil.Pi);
-// console.log(MathUtil.calculateCircumference(10));
-//generic
+MathUtility.PiValue = 3.14;
+// console.log(MathUtility.PiValue);
+// console.log(MathUtility.calculateCircumference(10));
+// Generic Function: Returns the same value passed to it
 function identity(value) {
     return value;
 }
 // console.log(identity<string>('hello'));
-// generic array
+// Generic Array Function: Returns an array of the same type
 function item(value) {
     return value;
 }
 // console.log(item<number>([1, 2, 3]));
 // console.log(item<string>(['a', 'b', 'c', 'd']));
-// generic class
-class Data {
+// Generic Class: Holds data of any type
+class DataHolder {
     constructor(data) {
-        this.data = data;
+        this.dataValue = data;
     }
+    // Method: Gets the stored data
     getData() {
-        return this.data;
+        return this.dataValue;
     }
+    // Method: Sets new data
     setData(data) {
-        this.data = data;
+        this.dataValue = data;
     }
 }
-const numberHolder = new Data(33);
-// console.log(numberHolder.getData());
-numberHolder.setData(3333333);
-// console.log(numberHolder.getData());
-// numeric enum
-var Stat;
-(function (Stat) {
-    Stat[Stat["Active"] = 1] = "Active";
-    Stat[Stat["Inactive"] = 2] = "Inactive";
-    Stat[Stat["Pending"] = 3] = "Pending";
-})(Stat || (Stat = {}));
-// console.log(Stat.Inactive);
-// string enum
-var Color;
-(function (Color) {
-    Color["White"] = "WHITE";
-    Color["Orange"] = "ORANGE";
-    Color["Yellow"] = "YELLOW";
-})(Color || (Color = {}));
-// console.log(Color.Yellow);
-// typeof
+const numberDataHolder = new DataHolder(33);
+// console.log(numberDataHolder.getData());
+numberDataHolder.setData(3333333);
+// console.log(numberDataHolder.getData());
+// Numeric Enum: Represents different statuses
+var StatusEnum;
+(function (StatusEnum) {
+    StatusEnum[StatusEnum["Active"] = 1] = "Active";
+    StatusEnum[StatusEnum["Inactive"] = 2] = "Inactive";
+    StatusEnum[StatusEnum["Pending"] = 3] = "Pending";
+})(StatusEnum || (StatusEnum = {}));
+// console.log(StatusEnum.Inactive);
+// String Enum: Represents different colors
+var ColorEnum;
+(function (ColorEnum) {
+    ColorEnum["White"] = "WHITE";
+    ColorEnum["Orange"] = "ORANGE";
+    ColorEnum["Yellow"] = "YELLOW";
+})(ColorEnum || (ColorEnum = {}));
+// console.log(ColorEnum.Yellow);
+// Typeof: Adds numbers or parses strings
 function add(value) {
     if (typeof value === 'number') {
         return 2 + value;
     }
     else {
-        return parseInt(value + 4);
+        return parseInt(value + '4');
     }
 }
 // console.log(add(1));
-// instanceof
+// Instanceof: Determines the type of an object
 class Cat {
     meow() {
         return 'Meow!';
@@ -196,7 +204,7 @@ class Cow {
         return 'Moo! Moo!';
     }
 }
-function getSound(animal) {
+function getAnimalSound(animal) {
     if (animal instanceof Cat) {
         return animal.meow();
     }
@@ -204,70 +212,73 @@ function getSound(animal) {
         return animal.moo();
     }
 }
-const cat = new Cat();
-// console.log(getSound(cat));
-var Role;
-(function (Role) {
-    Role["Admin"] = "Admin";
-    Role["User"] = "User";
-    Role["Guest"] = "Guest";
-})(Role || (Role = {}));
+const catInstance = new Cat();
+// console.log(getAnimalSound(catInstance));
+var UserRole;
+(function (UserRole) {
+    UserRole["Admin"] = "Admin";
+    UserRole["User"] = "User ";
+    UserRole["Guest"] = "Guest";
+})(UserRole || (UserRole = {}));
+// Function: Returns a message based on user role
 function getRoleMessage(role) {
     switch (role) {
-        case Role.Admin:
-            return 'u have full access';
-        case Role.User:
-            return 'u have limited access';
-        case Role.Guest:
-            return 'u have guest access';
+        case UserRole.Admin:
+            return 'You have full access';
+        case UserRole.User:
+            return 'You have limited access';
+        case UserRole.Guest:
+            return 'You have guest access';
         default:
-            return 'unknown role';
+            return 'Unknown role';
     }
 }
+// Function: Measures the length of an item
 function measure(item) {
-    console.log(`measured length is ${item.length}`);
+    console.log(`Measured length is ${item.length}`);
 }
 measure('item');
 measure([1, 2, 3]);
-// keyof with generics
-function getProperty(obj, key) {
+// Keyof with Generics: Gets a property from an object
+function getProperty1(obj, key) {
     return obj[key];
 }
-const user = { id: 1, name: 'Zari' };
-// class decorator
-// Think of it like a security camera system in a store:
+const userObject = { id: 1, name: 'Zari' };
+// Class Decorator: Monitors a class for security
 function SecurityCamera(store) {
     console.log(`Monitoring: ${store.name}`);
 }
-// Put security cameras in the store
+// Applying the security camera decorator to the GroceryStore class
 let GroceryStore = class GroceryStore {
-    constructor(name) {
-        this.name = name;
+    constructor(storeName) {
+        this.storeName = storeName;
     }
 };
 GroceryStore = __decorate([
     SecurityCamera,
     __metadata("design:paramtypes", [String])
 ], GroceryStore);
-// When store opens, security system activates automatically
-const myStore = new GroceryStore('Walmart');
-// property decorator
+// When the store opens, the security system activates automatically
+const myGroceryStore = new GroceryStore('Walmart');
+// Property Decorator: Logs access to a property
 function PropertyLogger(target, propertyKey) {
-    console.log(`accessed property is: ${propertyKey}`);
+    console.log(`Accessed property is: ${propertyKey}`);
 }
+// Class with a property that uses the property logger
 class User {
     constructor() {
-        this.name = 'tom';
+        this.userName = 'tom';
     }
 }
 __decorate([
     PropertyLogger,
     __metadata("design:type", String)
-], User.prototype, "name", void 0);
-// method decorator
+], User.prototype, "userName", void 0);
+// Method Decorator: Logs method calls
 function MethodLogger(target, propertyKey, descriptor) {
-    console.log(`Method ${propertyKey}`);
+    console.log(`Method ${propertyKey} called`);
 }
+// Class with a method that uses the method logger
 class Calculator1 {
     add(a, b) {
         return a + b;
@@ -279,5 +290,5 @@ __decorate([
     __metadata("design:paramtypes", [Number, Number]),
     __metadata("design:returntype", Number)
 ], Calculator1.prototype, "add", null);
-const calc = new Calculator1();
-console.log(calc.add(1, 3));
+const calculatorInstance = new Calculator1();
+console.log(calculatorInstance.add(1, 3));

@@ -1,35 +1,38 @@
 "use strict";
-// generic function
+// Generic function: Returns the value passed to it
 function inside(value) {
     return value;
 }
 // console.log(inside<string>('hello hi lol'));
-// generic array
+// Generic array function: Returns an array of the same type
 function getItems(items) {
     return items;
 }
 // console.log(getItems<number>([1, 2, 3]));
 // console.log(getItems<string>(['Hi from array']));
-// generic class
-class Data1 {
+// Generic class: Holds data of any type with getter and setter
+class DataHolder2 {
     constructor(data) {
         this._data = data;
     }
+    // Method to get the stored data
     getData() {
         return this._data;
     }
-    setData(_data) {
-        this._data = _data;
+    // Method to set new data
+    setData(newData) {
+        this._data = newData;
     }
 }
-const dataHolder = new Data1('hi from generic class');
+const dataHolder = new DataHolder('hi from generic class');
+// Function to log the length of an item
 function logLength(item) {
-    // console.log(`Length ${item.length}`);
+    // console.log(`Length: ${item.length}`);
 }
-logLength('hello form length function');
+logLength('hello from length function');
 logLength([1, 2, 3]);
-// keyof with generics
+// Keyof with generics: Function to get a property from an object
 function holdProperty(obj, key) {
     return obj[key];
 }
-const user1 = { id: 2, name: 'User2' };
+const user1 = { id: 2, name: 'User 2' };

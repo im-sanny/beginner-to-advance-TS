@@ -8,38 +8,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-function Logger(constructor) {
-    console.log(`Logging class: ${constructor.name}`);
+// Class Decorator: Logs the class name when the class is defined
+function Logger(classConstructor) {
+    console.log(`Logging class: ${classConstructor.name}`);
 }
+// Applying the Logger decorator to the Truck class
 let Truck = class Truck {
-    constructor(brand) {
-        this.brand = brand;
+    constructor(truckBrand) {
+        this.truckBrand = truckBrand;
     }
 };
 Truck = __decorate([
     Logger,
     __metadata("design:paramtypes", [String])
 ], Truck);
-const truck = new Truck('cyberTruck');
-// property decorator
+const electricTruck = new Truck('CyberTruck');
+// Property Decorator: Logs access to a property
 function Log(target, propertyKey) {
-    console.log(`someone accessed ${propertyKey}`);
+    console.log(`Someone accessed property: ${propertyKey}`);
 }
-class User4 {
+// Class with a property that uses the Log decorator
+class UserProfile {
     constructor() {
-        this.title = 'keep it up';
+        this.userTitle = 'Keep it up';
     }
 }
 __decorate([
     Log,
     __metadata("design:type", String)
-], User4.prototype, "title", void 0);
-// method decorator
+], UserProfile.prototype, "userTitle", void 0);
+// Method Decorator: Logs when a method is called
 function SquareLogger(target, propertyKey, descriptor) {
-    console.log(`Square method ${propertyKey}`);
+    console.log(`Square method called: ${propertyKey}`);
 }
+// Class with a method that uses the SquareLogger decorator
 class Square {
-    square(a, b) {
+    calculateSquare(a, b) {
         return a * b;
     }
 }
@@ -48,6 +52,6 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Number]),
     __metadata("design:returntype", void 0)
-], Square.prototype, "square", null);
-const calcSquare = new Square();
-console.log(calcSquare.square(70, 62));
+], Square.prototype, "calculateSquare", null);
+const squareCalculator = new Square();
+console.log(squareCalculator.calculateSquare(70, 62));

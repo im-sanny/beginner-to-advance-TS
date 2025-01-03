@@ -1,37 +1,37 @@
 // Basic String Type Annotation: Explicitly defining a string variable
-let greeting: string = 'Hello TypeScript';
+let greetingMessage: string = 'Hello TypeScript';
 
 // Primitive Type Declarations: Strongly typed simple variables
-let customerName: string = 'Rasel';
-let customerAge: number = 24;
-let isCustomerEmployed: boolean = false;
+let customerFullName: string = 'Rasel';
+let customerAgeInYears: number = 24;
+let isCustomerCurrentlyEmployed: boolean = false;
 
 // Array Type Annotations: Typed arrays with specific element types
-let favoriteFruits: string[] = ['mango', 'litchi'];
-let productQuantities: number[] = [1, 2, 3, 4];
+let favoriteFruitList: string[] = ['mango', 'litchi'];
+let productQuantityList: number[] = [1, 2, 3, 4];
 
 // Tuple: Fixed-length array with predefined type sequence
-let userProfile: [username: string, age: number, isStudent: boolean];
-userProfile = ['Rasel', 24, true];
+let userProfileTuple: [username: string, age: number, isStudent: boolean];
+userProfileTuple = ['Rasel', 24, true];
 
 // Union Types: Variables that can hold multiple types
-let dynamicValue: string | number;
-dynamicValue = 'customer name';
-dynamicValue = 42;
+let flexibleValue: string | number;
+flexibleValue = 'customer name';
+flexibleValue = 42;
 
 // Type Aliases: Creating custom types for complex or reusable type definitions
-type Identifier = string | number;
-let productId: Identifier = 'PROD001';
-productId = 12345;
+type IdentifierType = string | number;
+let productIdentifier: IdentifierType = 'PROD001';
+productIdentifier = 12345;
 
 // Object Type: Defining a structured object with specific property types
-type CustomerProfile = {
+type CustomerProfileType = {
   fullName: string;
   age: number;
   isUndergraduate: boolean;
 };
 
-let customerProfile: CustomerProfile = {
+let customerProfileObject: CustomerProfileType = {
   fullName: 'Tom Anderson',
   age: 24,
   isUndergraduate: true,
@@ -43,23 +43,26 @@ function calculateSum(firstNumber: number, secondNumber: number): number {
 }
 
 // Function with Optional Parameter: Parameter that may or may not be provided
-function generateGreeting(name: string, age?: number): string {
+function generateGreetingMessage(name: string, age?: number): string {
   return age ? `Hello ${name}, you are ${age} years old` : `Hello ${name}`;
 }
 
 // Function with Default Parameter: Providing a default value if not specified
-function calculateProduct(baseValue: number, multiplier: number = 3): number {
+function calculateProductValue(
+  baseValue: number,
+  multiplier: number = 3
+): number {
   return baseValue * multiplier;
 }
 
 // Function Type Alias: Defining a type for function signatures
-type MathOperation = (a: number, b: number) => number;
+type MathOperationType = (a: number, b: number) => number;
 
 // Arrow Function with Type Alias
-const performAddition: MathOperation = (x, y) => x + y;
+const performAdditionOperation: MathOperationType = (x, y) => x + y;
 
 // Interface: Defining a contract for object structure with additional features
-interface UserAccount {
+interface UserAccountInterface {
   id: number;
   username: string;
   isAdministrator: boolean;
@@ -67,7 +70,7 @@ interface UserAccount {
   readonly accountCreatedAt: string;
 }
 
-let userAccount: UserAccount = {
+let userAccountObject: UserAccountInterface = {
   id: 79,
   username: 'tom_tech',
   isAdministrator: true,
@@ -77,43 +80,44 @@ let userAccount: UserAccount = {
 // Class: Object-oriented programming construct with type safety
 class Person {
   // Private properties: Only accessible within the class
-  private name: string;
-  private age: number;
+  private personName: string;
+  private personAge: number;
 
   // Constructor: Initializes object properties
   constructor(name: string, age: number) {
-    this.name = name;
-    this.age = age;
+    this.personName = name;
+    this.personAge = age;
   }
 
-  // Method with return type annotation
+  // Method with return type annotation: Describes the person
   describePerson(): string {
-    return `I know ${this.name}`;
+    return `I know ${this.personName}`;
   }
 
-  // Method returning a number
+  // Method returning a number: Gets the person's age
   getAge(): number {
-    return this.age;
+    return this.personAge;
   }
 }
 
 // Class Instantiation and Array of Class Type
-const person = new Person('Thomas', 30);
-let personArray: Person[] = [];
+const individualPerson = new Person('Thomas', 30);
+let personArrayList: Person[] = [];
 
-// console.log(person.describePerson());
-// console.log(personArray);
+// console.log(individualPerson.describePerson());
+// console.log(personArrayList);
 
 // Access modifier
 class Animal {
-  protected species: string;
+  protected animalSpecies: string;
 
   constructor(species: string) {
-    this.species = species;
+    this.animalSpecies = species;
   }
 
+  // Method: Makes sound based on species
   makeSound(): string {
-    return `This is a ${this.species}`;
+    return `This is a ${this.animalSpecies}`;
   }
 }
 
@@ -121,31 +125,35 @@ class Dog extends Animal {
   constructor() {
     super('Dog');
   }
+
+  // Method: Dog barks
   bark(): string {
-    return `${this.species} says woof woof`;
+    return `${this.animalSpecies} says woof woof`;
   }
 }
 
-let dog = new Dog();
-// console.log(dog.makeSound());
-// console.log(dog.bark());
+let dogInstance = new Dog();
+// console.log(dogInstance.makeSound());
+// console.log(dogInstance.bark());
 
 // readOnly
 class Car {
-  readonly brand: string;
+  readonly carBrand: string;
 
   constructor(brand: string) {
-    this.brand = brand;
+    this.carBrand = brand;
   }
+
+  // Method: Describes the sound of the car
   makeSound(): string {
-    return `${this.brand} produce good car`;
+    return `${this.carBrand} produces good cars`;
   }
 }
 
-const getCar = new Car('Ford');
-// console.log(getCar.makeSound());
-// console.log(getCar.brand);
-// getCar.brand = 'Jaguar' //Error - Cannot assign to 'brand' because it is a read-only property
+const fordCar = new Car('Ford');
+// console.log(fordCar.makeSound());
+// console.log(fordCar.carBrand);
+// fordCar.carBrand = 'Jaguar' //Error - Cannot assign to 'carBrand' because it is a read-only property
 
 // getter and setter
 class Rectangle {
@@ -156,94 +164,100 @@ class Rectangle {
     this.width = width;
     this.height = height;
   }
+
+  // Getter: Calculates the area of the rectangle
   get area(): number {
     return this.width * this.height;
   }
 
+  // Setter: Updates the dimensions of the rectangle
   set dimension(dimension: { width: number; height: number }) {
     this.width = dimension.width;
     this.height = dimension.height;
   }
 }
 
-const rect = new Rectangle(5, 10);
-// console.log(rect.area);
+const rectangleInstance = new Rectangle(5, 10);
+// console.log(rectangleInstance.area);
 
-rect.dimension = { width: 20, height: 30 };
-// console.log(rect.area);
+rectangleInstance.dimension = { width: 20, height: 30 };
+// console.log(rectangleInstance.area);
 
 // Static Methods and Properties
-class MathUtil {
-  static Pi: number = 3.14;
+class MathUtility {
+  static PiValue: number = 3.14;
 
+  // Static Method: Calculates the circumference of a circle
   static calculateCircumference(radius: number): number {
-    return 2 * this.Pi * radius;
+    return 2 * this.PiValue * radius;
   }
 }
-// console.log(MathUtil.Pi);
-// console.log(MathUtil.calculateCircumference(10));
+// console.log(MathUtility.PiValue);
+// console.log(MathUtility.calculateCircumference(10));
 
-//generic
+// Generic Function: Returns the same value passed to it
 function identity<T>(value: T): T {
   return value;
 }
 // console.log(identity<string>('hello'));
 
-// generic array
+// Generic Array Function: Returns an array of the same type
 function item<T>(value: T[]): T[] {
   return value;
 }
 // console.log(item<number>([1, 2, 3]));
 // console.log(item<string>(['a', 'b', 'c', 'd']));
 
-// generic class
-class Data<T> {
-  private data: T;
+// Generic Class: Holds data of any type
+class DataHolder<T> {
+  private dataValue: T;
 
   constructor(data: T) {
-    this.data = data;
+    this.dataValue = data;
   }
 
+  // Method: Gets the stored data
   getData(): T {
-    return this.data;
+    return this.dataValue;
   }
 
+  // Method: Sets new data
   setData(data: T): void {
-    this.data = data;
+    this.dataValue = data;
   }
 }
-const numberHolder = new Data<number>(33);
-// console.log(numberHolder.getData());
-numberHolder.setData(3333333);
-// console.log(numberHolder.getData());
+const numberDataHolder = new DataHolder<number>(33);
+// console.log(numberDataHolder.getData());
+numberDataHolder.setData(3333333);
+// console.log(numberDataHolder.getData());
 
-// numeric enum
-enum Stat {
+// Numeric Enum: Represents different statuses
+enum StatusEnum {
   Active = 1,
   Inactive,
   Pending,
 }
-// console.log(Stat.Inactive);
+// console.log(StatusEnum.Inactive);
 
-// string enum
-enum Color {
+// String Enum: Represents different colors
+enum ColorEnum {
   White = 'WHITE',
   Orange = 'ORANGE',
   Yellow = 'YELLOW',
 }
-// console.log(Color.Yellow);
+// console.log(ColorEnum.Yellow);
 
-// typeof
+// Typeof: Adds numbers or parses strings
 function add(value: number | string): number {
   if (typeof value === 'number') {
     return 2 + value;
   } else {
-    return parseInt(value + 4);
+    return parseInt(value + '4');
   }
 }
 // console.log(add(1));
 
-// instanceof
+// Instanceof: Determines the type of an object
 class Cat {
   meow() {
     return 'Meow!';
@@ -255,7 +269,7 @@ class Cow {
   }
 }
 
-function getSound(animal: Cat | Cow) {
+function getAnimalSound(animal: Cat | Cow) {
   if (animal instanceof Cat) {
     return animal.meow();
   } else {
@@ -263,91 +277,101 @@ function getSound(animal: Cat | Cow) {
   }
 }
 
-const cat = new Cat();
-// console.log(getSound(cat));
+const catInstance = new Cat();
+// console.log(getAnimalSound(catInstance));
 
-enum Role {
+enum UserRole {
   Admin = 'Admin',
-  User = 'User',
+  User = 'User ',
   Guest = 'Guest',
 }
 
-function getRoleMessage(role: Role): string {
+// Function: Returns a message based on user role
+function getRoleMessage(role: UserRole): string {
   switch (role) {
-    case Role.Admin:
-      return 'u have full access';
-    case Role.User:
-      return 'u have limited access';
-    case Role.Guest:
-      return 'u have guest access';
+    case UserRole.Admin:
+      return 'You have full access';
+    case UserRole.User:
+      return 'You have limited access';
+    case UserRole.Guest:
+      return 'You have guest access';
     default:
-      return 'unknown role';
+      return 'Unknown role';
   }
 }
-// console.log(getRoleMessage(Role.Admin));
+// console.log(getRoleMessage(UserRole.Admin));
 
-interface Length {
+// Interface: Defines an object with a length property
+interface LengthInterface {
   length: number;
 }
-function measure<T extends Length>(item: T): void {
-  console.log(`measured length is ${item.length}`);
+
+// Function: Measures the length of an item
+function measure<T extends LengthInterface>(item: T): void {
+  console.log(`Measured length is ${item.length}`);
 }
 measure('item');
 measure([1, 2, 3]);
 
-// keyof with generics
-function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+// Keyof with Generics: Gets a property from an object
+function getProperty1<T, K extends keyof T>(obj: T, key: K): T[K] {
   return obj[key];
 }
-const user = { id: 1, name: 'Zari' };
-// console.log(user.name);
+const userObject = { id: 1, name: 'Zari' };
+// console.log(userObject.name);
 
-// generic utility type
-interface Do {
+// Generic Utility Type: Defines a task with optional properties
+interface Task {
   title: string;
   description: string;
   completed: boolean;
 }
-type PartialDo = Partial<Do>;
-type ReadonlyDo = Readonly<Do>;
-type PickDo = Pick<Do, 'title' | 'completed'>;
-type OmitDo = Omit<Dog, 'completed'>;
+type PartialTask = Partial<Task>;
+type ReadonlyTask = Readonly<Task>;
+type PickedTask = Pick<Task, 'title' | 'completed'>;
+type OmitTask = Omit<Task, 'completed'>;
 
-// class decorator
-// Think of it like a security camera system in a store:
+// Class Decorator: Monitors a class for security
 function SecurityCamera(store: Function) {
   console.log(`Monitoring: ${store.name}`);
 }
-// Put security cameras in the store
+
+// Applying the security camera decorator to the GroceryStore class
 @SecurityCamera
 class GroceryStore {
-  constructor(public name: string) {}
+  constructor(public storeName: string) {}
 }
-// When store opens, security system activates automatically
-const myStore = new GroceryStore('Walmart');
 
-// property decorator
+// When the store opens, the security system activates automatically
+const myGroceryStore = new GroceryStore('Walmart');
+
+// Property Decorator: Logs access to a property
 function PropertyLogger(target: any, propertyKey: string) {
-  console.log(`accessed property is: ${propertyKey}`);
+  console.log(`Accessed property is: ${propertyKey}`);
 }
+
+// Class with a property that uses the property logger
 class User {
   @PropertyLogger
-  name: string = 'tom';
+  userName: string = 'tom';
 }
 
-// method decorator
+// Method Decorator: Logs method calls
 function MethodLogger(
-  target:any,
+  target: any,
   propertyKey: string,
   descriptor: PropertyDescriptor
 ) {
-  console.log(`Method ${propertyKey}`);
+  console.log(`Method ${propertyKey} called`);
 }
+
+// Class with a method that uses the method logger
 class Calculator1 {
- @MethodLogger
+  @MethodLogger
   add(a: number, b: number): number {
     return a + b;
   }
 }
-const calc = new Calculator1();
-console.log(calc.add(1, 3));
+
+const calculatorInstance = new Calculator1();
+console.log(calculatorInstance.add(1, 3));
